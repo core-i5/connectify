@@ -1,0 +1,16 @@
+# Git
+.git
+.gitignore
+
+# Docker
+.docker
+
+# Python
+user_service/__pycache__/
+user_service/*/__pycache__/
+user_service/*/*/__pycache__/
+user_service/*/*/*/__pycache__/
+user_service/*/*/*/*/__pycache__/
+.env/
+.venv/
+venv/
