@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Define and export environment variables
+# Define and export environment variables
 export POSTGRES_DB="connectify"
 export POSTGRES_USER="connectify"
 export POSTGRES_PASSWORD="connectify"
@@ -13,7 +13,7 @@ cd connectify || exit
 
 # Build Docker images
 echo "Building Docker images..."
-docker-compose build
+docker-compose build --no-cache
 
 # Start Docker containers
 echo "Starting Docker containers..."
@@ -28,11 +28,13 @@ echo "Installing dependencies for post_service..."
 docker-compose exec post_service pip install -r requirements.txt
 
 # Apply migrations for user_service
-echo "Applying migrations for user_service..."
+echo "Create and applying migrations for user_service..."
+docker-compose exec user_service python3 manage.py makemigrations
 docker-compose exec user_service python3 manage.py migrate
 
 # Apply migrations for post_service
-echo "Applying migrations for post_service..."
+echo "Create and applying migrations for post_service..."
+docker-compose exec post_service python3 manage.py makemigrations
 docker-compose exec post_service python3 manage.py migrate
 
 # Create a superuser for user_service

@@ -91,9 +91,9 @@ ASGI_APPLICATION = 'user_service.asgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'user_db',
-        'USER': 'user_db_user',
-        'PASSWORD': 'password',
+        'NAME': os.getenv('POSTGRES_DB', 'connectify'),
+        'USER': os.getenv('POSTGRES_USER', 'connectify'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'connectify'),
         'HOST': 'db_user_service',
         'PORT': '5432',
     }

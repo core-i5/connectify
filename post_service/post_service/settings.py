@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -91,9 +91,9 @@ ASGI_APPLICATION = 'post_service.asgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'post_db',
-        'USER': 'post_db_user',
-        'PASSWORD': 'password',
+        'NAME': os.getenv('POSTGRES_DB', 'connectify'),
+        'USER': os.getenv('POSTGRES_USER', 'connectify'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'connectify'),
         'HOST': 'db_post_service',
         'PORT': '5432',
     }

@@ -24,7 +24,4 @@ class DiscussionDocument(Document):
 
     class Django:
         model = Discussion
-        fields = [
-            'text',
-            'created_on',
-        ]
+

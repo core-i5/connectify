@@ -10,5 +10,8 @@ chmod +x dependencies.sh
 # Make setup.sh executable
 chmod +x setup.sh
 
+# Make remove.sh executable
+chmod +x remove.sh
+
 # Run dependencies.sh
 ./dependencies.sh
