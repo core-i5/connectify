@@ -37,13 +37,13 @@ echo "Create and applying migrations for post_service..."
 docker-compose exec post_service python3 manage.py makemigrations
 docker-compose exec post_service python3 manage.py migrate
 
-# Create a superuser for user_service
-echo "Creating a superuser for user_service..."
-docker-compose exec user_service python3 manage.py createsuperuser
+# # Create a superuser for user_service
+# echo "Creating a superuser for user_service..."
+# docker-compose exec user_service python3 manage.py createsuperuser
 
-# Create a superuser for post_service
-echo "Creating a superuser for post_service..."
-docker-compose exec post_service python3 manage.py createsuperuser
+# # Create a superuser for post_service
+# echo "Creating a superuser for post_service..."
+# docker-compose exec post_service python3 manage.py createsuperuser
 
 # Elasticsearch health check (optional)
 echo "Checking Elasticsearch health status..."
